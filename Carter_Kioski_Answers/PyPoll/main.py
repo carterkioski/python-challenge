@@ -7,9 +7,10 @@ vote_count = 0
 votes = {}
 with open(read_path) as csvfile:
     csvreader = csv.reader(csvfile,delimiter=',')
-    next(csvreader)
+    header = next(csvreader)
     for row in csvreader:
         vote_count += 1
+        #if this candidate is already voted for, add a vote, if new add to dictionary
         if row[2] not in votes.keys():
             votes[row[2]] = 1
         else:

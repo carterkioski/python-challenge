@@ -7,12 +7,13 @@ gain_month, loss_month = '', ''
 
 with open(path) as csvfile:
     csvreader = csv.reader(csvfile,delimiter=',')
-
-    next(csvreader)
+    #stores headers in variable
+    header = next(csvreader)
 
     for row in csvreader:
         months += 1
         profit_loss += int(row[1])
+        #this prevents first row from throwing off the 'change'
         if prev == 0:
         	prev = int(row[1])
         change = int(row[1]) - prev
@@ -23,7 +24,9 @@ with open(path) as csvfile:
         if change < max_loss:
             max_loss = change
             loss_month = row[0]
+        #sets previous value for the next iteration
         prev = int(row[1])
+#stores the ourput with f string to print and write to file        
 output = f''' Financial Analysis
   ----------------------------
   Total Months: {months}
