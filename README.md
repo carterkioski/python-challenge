@@ -3,7 +3,7 @@
 This is the first python homework.
 
 The following problems have been completed:
-\nPyBank,
-\nPyPoll,
-\nPyParagraph,
-\nPyBoss
+PyBank,
+PyPoll,
+PyParagraph,
+PyBoss
